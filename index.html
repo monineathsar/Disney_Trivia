@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disney Trivia</title>
 </head>
+
 <body>
-    
+    <!-- main game page -->
+    <div>
+        <div>
+            <span>Rules of the game:</span>
+        </div>
+        <div>
+            <div>1. You have <span>15</span> questions to answer.</div>
+            <div>2. No Googling answers.</div>
+            <div>3. You will receive <span>1 point</span> for every question you answered correctly</div>
+            <div>4. Share the quiz link to challenge your friends and family!</div>
+        </div>
+        <div>
+            <button>Highscores</button>
+            <button>Play</button>
+            <button>Share</button>
+        </div>
+    </div>
+    <!-- questions page -->
+    <section>
+        <div class="questionText">
+            <!--insert question from JS here-->
+        </div>
+        <div class="answerList">
+            <!--insert answer choices from JS-->
+        </div>
+    </section>
+    <!-- Highscore page -->
+    <div>
+        <header>
+            <div>Highscores</div>
+        </header>
+        
+        <div>
+            <div>Player</div>
+            <div>Score</div>
+        </div>   
+
+        <div>
+            <ul></ul>
+        </div>
+
+        <div >
+            <button>Main Page</button>
+        </div>
+    </div>
+    <div>
+        <header>
+            <div>Game Over</div>
+        </header>
+        <div>
+            Enter your initials below to save your highscore!
+        </div>
+        <div>
+
+        </div>
+        <form>
+            <label>Player:</label>
+            <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">  
+        </form>
+        <button>Save</button>
+    </div>
+
 </body>
+
 </html>
