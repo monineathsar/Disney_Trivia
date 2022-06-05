@@ -9,55 +9,50 @@
     <link rel="stylesheet" href="style.css">
     <title>Disney Trivia</title>
 </head>
-
+<!-- START OF MAIN PAGE -->
 <body>
-    <!-- main game page -->
-   <section class="hero-banner"></section>
-    <!-- adding section to body -->
-    <div>
-        <div>
-            <span>Rules of the game:</span>
-        </div>
-        <div>
-            <div>1. You have <span>15</span> questions to answer.</div>
-            <div>2. No Googling answers.</div>
-            <div>3. You will receive <span>1 point</span> for every question you answered correctly</div>
-            <div>4. Share the quiz link to challenge your friends and family!</div>
-        </div>
-        <div>
-            <button>Highscores</button>
-            <button>Play</button>
-            <button>Share</button>
-        </div>
-    </div>
+<section>
+<img class="hero">
+        <h1>Welcome to Disney Triva!</h1>
+<div class="container">
+    <h2>Rules of the game:</h2>
+    <br>
+       <ul>
+            <ol>1. You have <span>15</span> questions to answer.</ol>
+            <ol>2. No Googling answers.</ol>
+            <ol>3. You will receive <span>1 point</span> for every question you answered correctly</ol>
+            <ol>4. Share the quiz link to challenge your friends and family!</ol>
+       </ul>
+       <button id="startBtn">Start Game</button>
+       <button id="highscoresBtn">View Highscores</button> 
+       <button id="shareBtn">Share Link</button>
+    <!-- END OF MAIN PAGE -->
     <!-- questions page -->
-    <section>
-        <div class="questionText">
-            <!--insert question from JS here-->
-        </div>
-        <div class="answerList">
+    
+        <!-- <div class="questionText">
+            insert question from JS here-->
+        <!-- </div>
+        <div class="answerList"> -->
             <!--insert answer choices from JS-->
-        </div>
-    </section>
-    <!-- Highscore page -->
-    <div>
-        <header>
-            <div>Highscores</div>
-        </header>
+        <!-- </div> -->
+
+     <!-- Highscore page -->
+    <!-- <section class='highscoreBox'>
         
-        <div>
-            <div>Player</div>
-            <div>Score</div>
-        </div>   
+            <h3>Highscores</h3>
+            <h4>Player</h4>
+            <h4>Score</h4>  
 
         <div>
-            <ul></ul>
+            <ul id='highScoreRecords'></ul>
         </div>
 
-        <div >
-            <button>Main Page</button>
-        </div>
-    </div>
+        <div>
+            <button id="mainBtn">Main Page</button>
+         </div>
+    <section class="highscoreForm"> -->
+
+    <!-- </div>
     <div>
         <header>
             <div>Game Over</div>
@@ -73,8 +68,8 @@
             <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">  
         </form>
         <button>Save</button>
-    </div>
-
+    </div> -->
+    <script src="./script.js".></script>
 </body>
 
 </html>
