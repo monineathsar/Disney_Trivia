@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./MDB5-STANDARD-UI-KIT-Free-4.1.0/css/mdb.min.css">
+    <link rel="stylesheet" href="./MDB5-STANDARD-UI-KIT-Free-4.1.0/css/mdb.dark.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Disney Trivia</title>
 </head>
-
+<!-- START OF MAIN PAGE -->
 <body>
+
     <!-- main game page -->
     <div>
         <div>
@@ -28,35 +30,51 @@
             <a class="share-btn email" href="mailto:?subject=Pure%20HTML%20Share%20Buttons&amp;body=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons" target="_blank">Email</a>
         </div>
     </div>
+
+<section>
+<img class="hero">
+        <h1>Welcome to Disney Triva!</h1>
+<!-- Info Container -->
+<div class="container">
+    <h2>Rules of the game:</h2>
+    <br>
+       <ul>
+            <ol>1. You have <span>15</span> questions to answer.</ol>
+            <ol>2. No Googling answers.</ol>
+            <ol>3. You will receive <span>1 point</span> for every question you answered correctly</ol>
+            <ol>4. Share the quiz link to challenge your friends and family!</ol>
+       </ul>
+ <div class="buttons">
+       <button id="startBtn">Start Game</button>
+       <button id="highscoresBtn" class="highscores" onclick="myFunction()">View Highscores</button> 
+       <button id="shareBtn">Share Link</button>
+</div>
+</section>
+    <!-- END OF MAIN PAGE -->
+
     <!-- questions page -->
-    <section>
-        <div class="questionText">
-            <!--insert question from JS here-->
-        </div>
-        <div class="answerList">
+    
+        <!-- <div class="questionText">
+            insert question from JS here-->
+        <!-- </div>
+        <div class="answerList"> -->
             <!--insert answer choices from JS-->
-        </div>
-    </section>
-    <!-- Highscore page -->
-    <div>
-        <header>
-            <div>Highscores</div>
-        </header>
+        <!-- </div> -->
+
+     <!-- Highscore page --> 
+    <!-- Highscore Container -->
+    
+    <!-- <div class="hsContainer">
         
-        <div>
-            <div>Player</div>
-            <div>Score</div>
-        </div>   
+            <h3>Player</h3>
+            <h3>Score</h3>  
 
         <div>
-            <ul></ul>
-        </div>
-
-        <div >
-            <button>Main Page</button>
+            <button id="mainBtn" onclick="myFunction()">Main Page</button>
         </div>
     </div>
-    <div>
+     
+     <div>
         <header>
             <div>Game Over</div>
         </header>
@@ -71,8 +89,8 @@
             <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">  
         </form>
         <button>Save</button>
-    </div>
-
+    </div> --> 
+    <script src="./script.js".></script>
 </body>
 
 </html>
