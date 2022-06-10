@@ -14,6 +14,7 @@
 <section>
 <img class="hero">
         <h1>Welcome to Disney Triva!</h1>
+<!-- Info Container -->
 <div class="container">
     <h2>Rules of the game:</h2>
     <br>
@@ -23,9 +24,12 @@
             <ol>3. You will receive <span>1 point</span> for every question you answered correctly</ol>
             <ol>4. Share the quiz link to challenge your friends and family!</ol>
        </ul>
+ <div class="buttons">
        <button id="startBtn">Start Game</button>
-       <button id="highscoresBtn">View Highscores</button> 
+       <button id="highscoresBtn" class="highscores" onclick="myFunction()">View Highscores</button> 
        <button id="shareBtn">Share Link</button>
+</div>
+</section>
     <!-- END OF MAIN PAGE -->
     <!-- questions page -->
     
@@ -36,24 +40,20 @@
             <!--insert answer choices from JS-->
         <!-- </div> -->
 
-     <!-- Highscore page -->
-    <!-- <section class='highscoreBox'>
+     <!-- Highscore page --> 
+    <!-- Highscore Container -->
+    
+    <!-- <div class="hsContainer">
         
-            <h3>Highscores</h3>
-            <h4>Player</h4>
-            <h4>Score</h4>  
+            <h3>Player</h3>
+            <h3>Score</h3>  
 
         <div>
-            <ul id='highScoreRecords'></ul>
+            <button id="mainBtn" onclick="myFunction()">Main Page</button>
         </div>
-
-        <div>
-            <button id="mainBtn">Main Page</button>
-         </div>
-    <section class="highscoreForm"> -->
-
-    <!-- </div>
-    <div>
+    </div>
+     
+     <div>
         <header>
             <div>Game Over</div>
         </header>
@@ -68,7 +68,7 @@
             <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">  
         </form>
         <button>Save</button>
-    </div> -->
+    </div> --> 
     <script src="./script.js".></script>
 </body>
 

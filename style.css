@@ -6,11 +6,13 @@
 :root {
     --white:rgb(255,255,255);
     --lightyellow: rgb(255,255,224); 
+    --lightblue:rgb(173, 216, 230);
 }
 
 span {
-    color:lightblue;
+    color: rgb(173, 216, 230);
     font-weight: bolder;
+    font-size:larger;
 }
 
 .hero {
@@ -29,9 +31,8 @@ span {
     color: var(--white);
     position: absolute;
     top:300px;
-    left: 350px;
-    width:50%;
-    height:40%;
+    left: 300px;
+    width:60%;
 }
 
 h1 {
@@ -53,19 +54,30 @@ ul {
     font-weight: bold;
 }
 
+div .buttons {
+    justify-content: space-around;
+    display: flex;
+}
+
 #startBtn,
 #highscoresBtn,
-#shareBtn,
-#mainBtn
+#shareBtn
  {
-    background-color: transparent;
+    background-color: var(--white);
     border-color: transparent;
-    color: var(--white);
+    color: black;
     font-size: 20px;
     font-weight: bolder;
     justify-content: space-around;
     padding:5px;
     padding-left: 10px;
     margin: 25px;
+    border-radius: 18px;
 }
-    
+
+#startBtn:hover,#highscoresBtn:hover,
+#shareBtn:hover,
+#mainBtn:hover {
+    background: grey;
+    cursor: pointer;
+}
