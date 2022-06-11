@@ -165,6 +165,9 @@ var hsFormsection = document.getElementById("formPage");
 var saveFormBtn = document.getElementById("saveBtn");
 saveFormBtn.setAttribute("onclick", "viewMainPage()");
 
+    // start game page elements
+var startGameSection = 
+
     // to display highscore page
 function viewHighScore() {
   highscoreSection.style.display = "block";
@@ -193,5 +196,12 @@ function viewFormPage() {
   mainPageSection.style.display = "none";
   highscoreSection.style.display = "none";
   hsFormsection.style.display = "block";
+}
+
+function startGame() {
+  gamePageSection.style.display = "block";
+  mainPageSection.style.display = "none";
+  highscoreSection.style.display = "none";
+  hsFormsection.style.display = "none";
 }
 // <<<<< Monineath's section
