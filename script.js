@@ -140,6 +140,12 @@ var backBtn = document.querySelector(".backBtn");
             
 //             questEl.text('');
             
+            answerOrdered.html('');
+            displayQuestion(quizObject[quizIndex]);
+        };
+    };
+});
+
 //             answerOrdered.html('');
 //             displayQuestion(quizObject[quizIndex]);
 //         };
@@ -171,3 +177,4 @@ function viewHighScore() {
 function viewMainPage() {
   targetDiv.style.display = "block";
 }
+
