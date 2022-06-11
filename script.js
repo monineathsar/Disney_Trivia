@@ -1,4 +1,4 @@
-let questionEl = document.querySelector(".questionText");
+// let questionEl = document.querySelector(".questionText");
 // Variables defined 
 // var game = $("#game");
 // var questEl = $('#question');
@@ -8,14 +8,8 @@ let questionEl = document.querySelector(".questionText");
 // var incorrectInput;
 // var quizIndex;
 // var timeLeft;
-
-//Main page variables
 // var startButton = $("#startbutton");
-var highScoreBtn = document.getElementById("highscoreBtn");
 
-// highscoreContainer variables
-var highscoreContainer = document.querySelector(".hsContainer");
-var backBtn = document.querySelector(".backBtn");
 
 // function getDisney() {
 //     return new Promise(function(resolve, reject){
@@ -140,11 +134,11 @@ var backBtn = document.querySelector(".backBtn");
             
 //             questEl.text('');
             
-            answerOrdered.html('');
-            displayQuestion(quizObject[quizIndex]);
-        };
-    };
-});
+//             answerOrdered.html('');
+//             displayQuestion(quizObject[quizIndex]);
+//         };
+//     };
+// });
 
 //             answerOrdered.html('');
 //             displayQuestion(quizObject[quizIndex]);
@@ -152,16 +146,31 @@ var backBtn = document.querySelector(".backBtn");
 //     };
 // });
 
-// Monineath working on this
-var targetDiv = document.getElementById("mainPage");
-var hsBtn = document.getElementById("highscoresBtn");
-hsBtn.setAttribute("onclick", "viewHighScore()");
+// Monineath's section >>>>>
+    // main page elements
+var mainPageSection = document.getElementById("mainPage");
+
+var viewHsBtn = document.getElementById("highscoresBtn");
+viewHsBtn.setAttribute("onclick", "viewHighScore()");
+
+    // Highscore page elements
+var highscoreSection = document.getElementById("highscorePage");
 
 var mainPageBtn = document.getElementById("mainPageBtn");
 mainPageBtn.setAttribute("onclick", "viewMainPage()");
 
+    // highscore FORM page elements
+var hsFormsection = document.getElementById("formPage");
+
+var saveFormBtn = document.getElementById("saveBtn");
+saveFormBtn.setAttribute("onclick", "viewMainPage()");
+
+    // to display highscore page
 function viewHighScore() {
-  targetDiv.style.display = "none";
+  highscoreSection.style.display = "block";
+  mainPageSection.style.display = "none";
+  hsFormsection.style.display = "none";
+  
 
     //pulls stored score arrays from local storage 
   // var storedScoreArray = JSON.parse(localStorage.getItem("data"));
@@ -173,8 +182,16 @@ function viewHighScore() {
   //show stored highscores in highscore box
   
 };
-
+    // to display main page
 function viewMainPage() {
-  targetDiv.style.display = "block";
+  mainPageSection.style.display = "block";
+  highscoreSection.style.display = "none";
+  hsFormsection.style.display = "none";
 }
-
+    // to diplay highscore FORM page
+function viewFormPage() {
+  mainPageSection.style.display = "none";
+  highscoreSection.style.display = "none";
+  hsFormsection.style.display = "block";
+}
+// <<<<< Monineath's section

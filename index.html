@@ -12,9 +12,10 @@
 <!-- START OF MAIN PAGE -->
 
 <body>
+    <img class="hero">
     <!-- Main page -->
     <section id="mainPage">
-        <img class="hero">
+        
         <h1>Welcome to Disney Triva!</h1>
         <!-- Info Container -->
         <div class="container">
@@ -23,20 +24,19 @@
             <ul>
                 <ol>1. You have <span>15</span> questions to answer.</ol>
                 <ol>2. No Googling answers.</ol>
-                <ol>3. You will receive <span>1 point</span> for every question you answered correctly</ol>
-                <ol>4. Share the quiz link to challenge your friends and family!</ol>
+                <ol>3. You will receive <span>1 point</span> for every question you answered correctly.</ol>
+                <ol>4. You will win a Disney Character Card depending on your total score at the end of the trivia.</ol>
+                <ol>5. Share the quiz link to challenge your friends and family!</ol>
             </ul>
-            <div class="buttons">
+            <div class="divButtons">
                 <button id="startBtn">Start Game</button>
-
-                <button id="highscoresBtn">View Highscores</button>
 
                 <button id="highscoresBtn" class="highscores">View Highscores</button>
 
-                <a class="share-btn facebook"
+                <a class="button"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons"
                     target="_blank">Facebook</a>
-                <a class="share-btn email"
+                <a class="button"
                     href="mailto:?subject=Pure%20HTML%20Share%20Buttons&amp;body=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons"
                     target="_blank">Email</a>
             </div>
@@ -55,44 +55,43 @@
     <!-- Highscore page -->
     <!-- Highscore Container -->
     <section>
-        <div class="hsContainer" id="showHighscore">
+        <div class="hsContainer" id="highscorePage">
 
-            <header>
-                <div>Highscores</div>
-            </header>
+            <h2>Highscores</h2>
             
             <div class="highscoreList">
-                <div>Player</div>
-                <div>Score</div>
+                <h3>Player</h3>
+                <h3>Score</h3>
             </div>   
     
             <div>
                 <ul id="highscoreHistory"></ul>
             </div>
     
-            <div class="buttons">
-                <button id="mainPageBtn">Main Page</button>
-                <div>
-                    *Your score is based on how many seconds you had left of the game!
+            <div class="divButtons" id="backToMainBtn">
+                <div class="comments">
+                    *Your Disney charecter is based on your score*
                 </div>
+                <button id="mainPageBtn">Main Page</button>
             </div>
         </div>
 
-        <div>
-            <div>
-                <!-- <h1>Game Over</h1> -->
-            </div>
-            <div>
+        <div class="formDiv" id="formPage">
+            
+            <h2>Game Over</h2>
+            
+            <div class="comments">
                 Enter your initials below to save your highscore!
             </div>
-            <form>
+            <br>
+            <form class="formInput">
                 <label>Player:</label>
                 <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">
             </form>
-            <button>Save</button>
+            <button id="saveBtn">Save</button>
         </div>
     </section>
-    <script src="./script.js" .></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
