@@ -13,7 +13,7 @@
 
 <body>
     <!-- Main page -->
-    <section>
+    <section id="mainPage">
         <img class="hero">
         <h1>Welcome to Disney Triva!</h1>
         <!-- Info Container -->
@@ -28,7 +28,11 @@
             </ul>
             <div class="buttons">
                 <button id="startBtn">Start Game</button>
+
                 <button id="highscoresBtn">View Highscores</button>
+
+                <button id="highscoresBtn" class="highscores">View Highscores</button>
+
                 <a class="share-btn facebook"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons"
                     target="_blank">Facebook</a>
@@ -50,33 +54,44 @@
 
     <!-- Highscore page -->
     <!-- Highscore Container -->
+    <section>
+        <div class="hsContainer" id="showHighscore">
 
-    <!-- <div class="hsContainer">
-        
-            <h3>Player</h3>
-            <h3>Score</h3>  
+            <header>
+                <div>Highscores</div>
+            </header>
+            
+            <div class="highscoreList">
+                <div>Player</div>
+                <div>Score</div>
+            </div>   
+    
+            <div>
+                <ul id="highscoreHistory"></ul>
+            </div>
+    
+            <div class="buttons">
+                <button id="mainPageBtn">Main Page</button>
+                <div>
+                    *Your score is based on how many seconds you had left of the game!
+                </div>
+            </div>
+        </div>
 
         <div>
-            <button id="mainBtn" onclick="myFunction()">Main Page</button>
+            <div>
+                <!-- <h1>Game Over</h1> -->
+            </div>
+            <div>
+                Enter your initials below to save your highscore!
+            </div>
+            <form>
+                <label>Player:</label>
+                <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">
+            </form>
+            <button>Save</button>
         </div>
-    </div>
-     
-     <div>
-        <header>
-            <div>Game Over</div>
-        </header>
-        <div>
-            Enter your initials below to save your highscore!
-        </div>
-        <div>
-
-        </div>
-        <form>
-            <label>Player:</label>
-            <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">  
-        </form>
-        <button>Save</button>
-    </div> -->
+    </section>
     <script src="./script.js" .></script>
 </body>
 
