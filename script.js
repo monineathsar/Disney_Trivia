@@ -74,7 +74,7 @@
 //     for (i=0; i<3; i++) {
 //         let answerTrue = $("xxx").addClass("xxx");
 //         let answerWrong = $("xxx").addClass("xxx");
-       
+
 //         if (order === i && order < 3) {
 //             answerTrue.text(myObject.true);
 //             answerOrdered.append(answerTrue);
@@ -82,15 +82,15 @@
 //             answerOrdered.append(answerWrong);
 //         }
 //         else if (order === 3 && i === 2) {
-           
+
 //             answerWrong.text(myObject.wrong[i]);
 //             answerOrdered.append(answerWrong);
-         
+
 //             answerTrue.text(myObject.true);
 //             answerOrdered.append(answerTrue);
 //         }
 //         else {
-        
+
 //             answerWrong.text(myObject.wrong[i]);
 //             answerOrdered.append(answerWrong);
 //         }
@@ -107,7 +107,7 @@
 //             game.text(`You have ${timeLeft} seconds left.`);
 //             timeLeft--;
 //         }
-        
+
 //         // Completed the questions or time has run out
 //         else (timeLeft === 0 || quizIndex === quizObject.length);
 
@@ -131,9 +131,9 @@
 
 //         // Move to the following question
 //         if (quizIndex < quizObject.length) {
-            
+
 //             questEl.text('');
-            
+
 //             answerOrdered.html('');
 //             displayQuestion(quizObject[quizIndex]);
 //         };
@@ -147,51 +147,61 @@
 // });
 
 // Monineath's section >>>>>
-    // main page elements
+// main page elements
 var mainPageSection = document.getElementById("mainPage");
 
 var viewHsBtn = document.getElementById("highscoresBtn");
 viewHsBtn.setAttribute("onclick", "viewHighScore()");
 
-    // Highscore page elements
+// Highscore page elements
 var highscoreSection = document.getElementById("highscorePage");
 
 var mainPageBtn = document.getElementById("mainPageBtn");
 mainPageBtn.setAttribute("onclick", "viewMainPage()");
 
-    // highscore FORM page elements
+// highscore FORM page elements
 var hsFormsection = document.getElementById("formPage");
 
 var saveFormBtn = document.getElementById("saveBtn");
 saveFormBtn.setAttribute("onclick", "viewMainPage()");
 
-    // to display highscore page
-function viewHighScore() {
-  highscoreSection.style.display = "block";
-  mainPageSection.style.display = "none";
-  hsFormsection.style.display = "none";
-  
+// start game page elements
+var startGameSection = 
+
+  // to display highscore page
+  function viewHighScore() {
+    highscoreSection.style.display = "block";
+    mainPageSection.style.display = "none";
+    hsFormsection.style.display = "none";
+
 
     //pulls stored score arrays from local storage 
-  // var storedScoreArray = JSON.parse(localStorage.getItem("data"));
-  // if (storedScoreArray !== null) { //sorts highscores from highest to lowest 
-  //   storedScoreArray.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
-  //   scoresarray = storedScoreArray;
-  // }
+    // var storedScoreArray = JSON.parse(localStorage.getItem("data"));
+    // if (storedScoreArray !== null) { //sorts highscores from highest to lowest 
+    //   storedScoreArray.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+    //   scoresarray = storedScoreArray;
+    // }
 
-  //show stored highscores in highscore box
-  
-};
-    // to display main page
+    //show stored highscores in highscore box
+
+  };
+// to display main page
 function viewMainPage() {
   mainPageSection.style.display = "block";
   highscoreSection.style.display = "none";
   hsFormsection.style.display = "none";
 }
-    // to diplay highscore FORM page
+// to diplay highscore FORM page
 function viewFormPage() {
   mainPageSection.style.display = "none";
   highscoreSection.style.display = "none";
   hsFormsection.style.display = "block";
+}
+// to display game page
+function startGame() {
+  gamePageSection.style.display = "block";
+  mainPageSection.style.display = "none";
+  highscoreSection.style.display = "none";
+  hsFormsection.style.display = "none";
 }
 // <<<<< Monineath's section

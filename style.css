@@ -33,6 +33,7 @@ span {
     top:300px;
     left: 300px;
     width:60%;
+    /* display: none; */
 }
 
 .hsContainer {
