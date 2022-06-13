@@ -1,55 +1,55 @@
-let questionEl = document.querySelector(".questionText");
-// // Variables defined 
-// var game = $("#game");
-// var questEl = $('#question');
-// var answerOrdered = $("#answers");
-// var answerAlert = $("#answeralert");
-// var correctInput;
-// var incorrectInput;
-// var quizIndex;
-// var timeLeft;
-// var startButton = $("#startbutton");
+// let questionEl = document.querySelector(".questionText");
+// // // Variables defined 
+// // var game = $("#game");
+// // var questEl = $('#question');
+// // var answerOrdered = $("#answers");
+// // var answerAlert = $("#answeralert");
+// // var correctInput;
+// // var incorrectInput;
+// // var quizIndex;
+// // var timeLeft;
+// // var startButton = $("#startbutton");
 
 
-function getMarvel() {
-    return new Promise(function(resolve, reject){
-    fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=medium&tags=marvel').then(function(response){
-        response.json().then(function(data){
-          resolve(data)
-        });
-      }).catch(function(error){
-        reject(error);
-      })
-    });
-  }
+// function getMarvel() {
+//     return new Promise(function(resolve, reject){
+//     fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=medium&tags=marvel').then(function(response){
+//         response.json().then(function(data){
+//           resolve(data)
+//         });
+//       }).catch(function(error){
+//         reject(error);
+//       })
+//     });
+//   }
 
-getMarvel().then(function(result){
-  console.log(result)
-});
+// getMarvel().then(function(result){
+//   console.log(result)
+// });
 
-function getTrivia() {
-  return new Promise(function(resolve, reject){
-  fetch('https://opentdb.com/api.php?amount=50&category=11&type=multiple').then(function(response){
-    response.json().then(function(data){
-      resolve(data)
-    });
-  }).catch(function(error){
-    reject(error);
-  })
-});
-}
+// function getTrivia() {
+//   return new Promise(function(resolve, reject){
+//   fetch('https://opentdb.com/api.php?amount=50&category=11&type=multiple').then(function(response){
+//     response.json().then(function(data){
+//       resolve(data)
+//     });
+//   }).catch(function(error){
+//     reject(error);
+//   })
+// });
+// }
 
-getTrivia().then(function(data){
-  for(let i = 0; i < data.results.length; i++){
-    if(data.results[i].question.includes("Marvel")){
-      let question = document.createElement("p");
-      question.innerHTML = data.results[i].question;
-      questionEl.appendChild(question);
-      break;
-    }
-  }
-  console.log(data);
-});
+// getTrivia().then(function(data){
+//   for(let i = 0; i < data.results.length; i++){
+//     if(data.results[i].question.includes("Marvel")){
+//       let question = document.createElement("p");
+//       question.innerHTML = data.results[i].question;
+//       questionEl.appendChild(question);
+//       break;
+//     }
+//   }
+//   console.log(data);
+// });
 
 
 // // Set clock, remove button, and start 60 seconds, begin game
@@ -168,11 +168,11 @@ saveFormBtn.setAttribute("onclick", "viewMainPage()");
 // start game page elements
 var startGameSection = 
 
-  // to display highscore page
-  function viewHighScore() {
-    highscoreSection.style.display = "block";
-    mainPageSection.style.display = "none";
-    hsFormsection.style.display = "none";
+// to display highscore page
+function viewHighScore() {
+  highscoreSection.style.display = "block";
+  mainPageSection.style.display = "none";
+  hsFormsection.style.display = "none";
 
 
     //pulls stored score arrays from local storage 
@@ -184,7 +184,7 @@ var startGameSection =
 
     //show stored highscores in highscore box
 
-  };
+};
 // to display main page
 function viewMainPage() {
   mainPageSection.style.display = "block";
