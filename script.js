@@ -1,5 +1,5 @@
-// let questionEl = document.querySelector(".questionText");
-// Variables defined 
+let questionEl = document.querySelector(".questionText");
+// // Variables defined 
 // var game = $("#game");
 // var questEl = $('#question');
 // var answerOrdered = $("#answers");
@@ -11,45 +11,45 @@
 // var startButton = $("#startbutton");
 
 
-// function getDisney() {
-//     return new Promise(function(resolve, reject){
-//     fetch('https://the-trivia-api.com/api/questions?categories=film_and_tv&limit=20&tags=disney').then(function(response){
-//         response.json().then(function(data){
-//           resolve(data)
-//         });
-//       }).catch(function(error){
-//         reject(error);
-//       })
-//     });
-//   }
+function getMarvel() {
+    return new Promise(function(resolve, reject){
+    fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=medium&tags=marvel').then(function(response){
+        response.json().then(function(data){
+          resolve(data)
+        });
+      }).catch(function(error){
+        reject(error);
+      })
+    });
+  }
 
-// getDisney().then(function(result){
-//   console.log(result)
-// });
+getMarvel().then(function(result){
+  console.log(result)
+});
 
-// function getTrivia() {
-//   return new Promise(function(resolve, reject){
-//   fetch('https://opentdb.com/api.php?amount=50&category=11&type=multiple').then(function(response){
-//     response.json().then(function(data){
-//       resolve(data)
-//     });
-//   }).catch(function(error){
-//     reject(error);
-//   })
-// });
-// }
+function getTrivia() {
+  return new Promise(function(resolve, reject){
+  fetch('https://opentdb.com/api.php?amount=50&category=11&type=multiple').then(function(response){
+    response.json().then(function(data){
+      resolve(data)
+    });
+  }).catch(function(error){
+    reject(error);
+  })
+});
+}
 
-// getTrivia().then(function(data){
-//   for(let i = 0; i < data.results.length; i++){
-//     if(data.results[i].question.includes("Disney")){
-//       let question = document.createElement("p");
-//       question.innerHTML = data.results[i].question;
-//       questionEl.appendChild(question);
-//       break;
-//     }
-//   }
-//   console.log(data);
-// });
+getTrivia().then(function(data){
+  for(let i = 0; i < data.results.length; i++){
+    if(data.results[i].question.includes("Marvel")){
+      let question = document.createElement("p");
+      question.innerHTML = data.results[i].question;
+      questionEl.appendChild(question);
+      break;
+    }
+  }
+  console.log(data);
+});
 
 
 // // Set clock, remove button, and start 60 seconds, begin game
@@ -205,3 +205,5 @@ function startGame() {
   hsFormsection.style.display = "none";
 }
 // <<<<< Monineath's section
+
+// fdafas
