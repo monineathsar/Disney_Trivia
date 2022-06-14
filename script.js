@@ -256,3 +256,61 @@ function viewGamePage() {
   hsFormSection.style.display = "none";
 }
 // <<<<< Monineath's section
+
+
+// Uday's gameover section
+function play(quiz) {
+  //hide button and show form
+  hide($start);
+  show($form);
+  //main game loop
+  update($score,score);
+  
+  $form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      check($form[0].value);
+  }, false);
+  
+  
+  var i = 0;
+  chooseQuestion();
+  //end of main game loop
+  
+  gameOver();
+  
+  function chooseQuestion() {
+      var question = quiz.questions[i].question;
+      ask(question);
+  }
+  
+  function ask(question) {
+      update($question, quiz.question + question);
+      $form[0].value=" ";
+      $form[0].focus();
+  }
+  
+  function check(answer) {
+      if(answer === quiz.questions[i].answer){  
+      update($feedback, "Correct!","right");
+      //increase score by 1
+      score++;
+      update($score,score)
+      } else {
+      update ($feedback, "Wrong!", "wrong");
+      }
+      i++;
+      if(i===quiz.questions.length) {
+      gameOver();
+      } else {
+          chooseQuestion();
+      }
+      
+  }
+  
+  function gameOver() {
+      //inform the player that the game has finished and tell them how many points they have scored
+      update($question , "Game Over, you scored " + score + " points");
+      hide($form);
+      show($start);
+  }
+};
