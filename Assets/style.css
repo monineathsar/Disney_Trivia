@@ -68,7 +68,7 @@
     border: dotted var(--lightyellow);
     color: var(--white);
     position: absolute;
-    top:300px;
+    top: 180px;
     left: 300px;
     width:60%;
     display: none;
@@ -165,4 +165,3 @@ div .saveBtn {
  padding-left: 45%;
 }
 /* Monineath's working on this CSS */
-
