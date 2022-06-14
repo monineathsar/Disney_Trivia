@@ -22,7 +22,7 @@
             <h2>Rules of the game:</h2>
             <br>
             <ul>
-                <ol>1. You have <span>15</span> questions to answer.</ol>
+                <ol>1. You have <span>10</span> questions to answer.</ol>
                 <ol>2. No Googling answers.</ol>
                 <ol>3. You will receive <span>1 point</span> for every question you answered correctly.</ol>
                 <ol>4. You will win a Disney Character Card depending on your total score at the end of the trivia.</ol>
@@ -44,7 +44,16 @@
     <!-- END OF MAIN PAGE -->
 
     <!-- questions page -->
-    <section id="startGamePage">
+    <section class="gameContainer" id="startGamePage">
+        <header>
+            <h2>
+                Marvel Trivia
+            </h2>
+            <div>
+                <div class="timeText">Time: </div>
+                <div id="secsLeft">00:15</div>
+            </div>
+        </header>
         <div class="questionText">
             <!-- insert question from JS here--> -->
         </div>
@@ -92,6 +101,7 @@
         </div>
     </section>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 </body>
 
 </html>
