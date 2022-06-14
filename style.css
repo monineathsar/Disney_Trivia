@@ -16,7 +16,7 @@ span {
 }
 
 .hero {
-    background-image: url(./disney_background.jpeg);
+    background-image: url(./Assets/disney_background.jpeg);
     width:100%;
     height:900px;
     background-size: cover;
