@@ -18,7 +18,7 @@ saveFormBtn.setAttribute("onclick", "viewMainPage()");
 
 const homeContainer = document.querySelector(".container");
 const startgameBtn = homeContainer.querySelector("#startBtn");
-const viewHsBtn = document.getElementById("highscoresBtn");
+const viewHsBtn = document.getElementById("highscoreBtn");
 viewHsBtn.setAttribute("onclick", "viewHighScore()");
 
 const giphyKey = "G0bL1VhIULA0XwlHEwdsZFsRp2kbEO4k";
@@ -76,12 +76,15 @@ function generateQuestions() {
 
   let questionText = document.querySelector(".questionText");
   let answerList = document.querySelector(".answerList");
+  let answerSelected = document.querySelector(".answerSelected");
+  console.log(answerSelected);
+  answerSelected.style.display = "none";
+  answerList.style.display = "block"; 
 
   let choices = questionsArray[currentQuestion].incorrectAnswers;
   choices.push(questionsArray[currentQuestion].correctAnswer);
   
   let randomChoices = _.sample(choices, 4);
-  console.log(randomChoices);
 
   questionText.innerHTML = '<div class="questionText"><span>' + (currentQuestion+1) + '. ' + questionsArray[currentQuestion].question + '</span>'; 
   //shows answers choices in quiz box in order it was written in questions object array
@@ -99,13 +102,20 @@ function generateQuestions() {
   }
 }
 
-function optionSelected(answer) {
-  if(answer.innerText === questionsArray[currentQuestion].correctAnswer) {
-    console.log("yay");
-  }
+function optionSelected(selection) {
+    if (selection.innerText === questionsArray[currentQuestion].correctAnswer) {
+        selection.style.backgroundColor = 'green';
+    } else {
+        selection.style.backgroundColor = 'red';
+    }
 
-  currentQuestion++;
-  generateQuestions();
+  document.querySelector(".answerList").style.display = "none";;
+  document.querySelector(".answerSelected").style.display = "block";;
+
+  let timer = setInterval(function() {
+    generateQuestions();
+    clearInterval(timer);
+  }, 5000);
 }
 
 // start game funtion
