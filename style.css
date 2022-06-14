@@ -9,6 +9,9 @@
     --lightblue:rgb(173, 216, 230);
     --red: rgb(255,0,0);
 }
+.container span {
+    color: rgb(173, 216, 230);
+}
 
 span {
     color: red;
@@ -48,6 +51,41 @@ span {
     left: 300px;
     width:60%;
     display: none;
+}
+
+.gameContainer {
+    background: transparent;
+    border: dotted var(--lightyellow);
+    color: var(--white);
+    position: absolute;
+    top:300px;
+    left: 300px;
+    width:60%;
+    display: none;
+}
+.gameContainer span {
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+}
+.questionText span {
+    color: white;
+    font-size: 20px;
+    font-weight: larger;
+}
+.answerList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.option {
+    background: azure;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
 }
 
 /* Monineath's CSS in-progess */

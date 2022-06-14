@@ -57,7 +57,16 @@
     <!-- END OF MAIN PAGE -->
 
     <!-- questions page -->
-    <section id="startGamePage">
+    <section class="gameContainer" id="startGamePage">
+        <header>
+            <h2>
+                Marvel Trivia
+            </h2>
+            <div>
+                <div class="timeText">Time: </div>
+                <div id="secsLeft">00:15</div>
+            </div>
+        </header>
         <div class="questionText">
             <!-- insert question from JS here--> -->
         </div>
@@ -103,6 +112,7 @@
         </div>
     </section>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 </body>
 
 </html>
