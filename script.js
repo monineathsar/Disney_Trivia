@@ -1,19 +1,19 @@
 // let questionEl = document.querySelector(".questionText");
-// Variables defined 
-// var game = $("#game");
-// var questEl = $('#question');
-// var answerOrdered = $("#answers");
-// var answerAlert = $("#answeralert");
-// var correctInput;
-// var incorrectInput;
-// var quizIndex;
-// var timeLeft;
-// var startButton = $("#startbutton");
+// // // Variables defined 
+// // var game = $("#game");
+// // var questEl = $('#question');
+// // var answerOrdered = $("#answers");
+// // var answerAlert = $("#answeralert");
+// // var correctInput;
+// // var incorrectInput;
+// // var quizIndex;
+// // var timeLeft;
+// // var startButton = $("#startbutton");
 
 
-// function getDisney() {
+// function getMarvel() {
 //     return new Promise(function(resolve, reject){
-//     fetch('https://the-trivia-api.com/api/questions?categories=film_and_tv&limit=20&tags=disney').then(function(response){
+//     fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=medium&tags=marvel').then(function(response){
 //         response.json().then(function(data){
 //           resolve(data)
 //         });
@@ -23,7 +23,7 @@
 //     });
 //   }
 
-// getDisney().then(function(result){
+// getMarvel().then(function(result){
 //   console.log(result)
 // });
 
@@ -41,7 +41,7 @@
 
 // getTrivia().then(function(data){
 //   for(let i = 0; i < data.results.length; i++){
-//     if(data.results[i].question.includes("Disney")){
+//     if(data.results[i].question.includes("Marvel")){
 //       let question = document.createElement("p");
 //       question.innerHTML = data.results[i].question;
 //       questionEl.appendChild(question);
@@ -168,11 +168,11 @@ saveFormBtn.setAttribute("onclick", "viewMainPage()");
 // start game page elements
 var startGameSection = 
 
-  // to display highscore page
-  function viewHighScore() {
-    highscoreSection.style.display = "block";
-    mainPageSection.style.display = "none";
-    hsFormsection.style.display = "none";
+// to display highscore page
+function viewHighScore() {
+  highscoreSection.style.display = "block";
+  mainPageSection.style.display = "none";
+  hsFormsection.style.display = "none";
 
 
     //pulls stored score arrays from local storage 
@@ -184,7 +184,7 @@ var startGameSection =
 
     //show stored highscores in highscore box
 
-  };
+};
 // to display main page
 function viewMainPage() {
   mainPageSection.style.display = "block";
@@ -206,6 +206,7 @@ function startGame() {
 }
 // <<<<< Monineath's section
 
+<<<<<<< HEAD
 // Uday's gameover section
 function play(quiz) {
   //hide button and show form
