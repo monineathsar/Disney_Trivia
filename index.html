@@ -6,76 +6,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./MDB5-STANDARD-UI-KIT-Free-4.1.0/css/mdb.dark.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Disney Trivia</title>
+    <link rel="stylesheet" href="./Assets/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/style.css">
+    <title>Marvel Trivia</title>
 </head>
-<!-- START OF MAIN PAGE -->
 
 <body>
-    <img class="hero">
+    <!-- START OF MAIN PAGE -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                <li class="nav-item me-3 me-lg">
+                    <a class="button"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons">
+                        <i class="fa-brands fa-facebook-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg">
+                    <a class="button"
+                        href="mailto:?subject=Pure%20HTML%20Share%20Buttons&amp;body=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons">
+                        <i class="fa-solid fa-envelope fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="bg-image d-flex justify-content-center align-items-center" style="background-image: url('./Assets/marvel\ bg\ img.jpeg');
+    height: 100vh; opacity: 55%;">
+    </div>
     <!-- Main page -->
     <section id="mainPage">
-
-        <h1>Welcome to Disney Triva!</h1>
+        <h1>Welcome to Marvel Trivia!</h1>
         <!-- Info Container -->
         <div class="container">
+            <!-- Content here -->
             <h2>Rules of the game:</h2>
             <br>
             <ul>
-                <ol>1. You have <span>15</span> questions to answer.</ol>
-                <ol>2. No Googling answers.</ol>
-                <ol>3. You will receive <span>1 point</span> for every question you answered correctly.</ol>
-                <ol>4. You will win a Disney Character Card depending on your total score at the end of the trivia.</ol>
+                <ol>1. You have <span>10</span> questions to answer.</ol>
+                <ol>2. You have <span>15</span> seconds to answer each question.</ol>
+                <ol>3. No Googling answers.</ol>
+                <ol>4. You will receive <span>1 point</span> for every question you answered correctly.</ol>
                 <ol>5. Share the quiz link to challenge your friends and family!</ol>
             </ul>
             <div class="divButtons">
-                <button id="startBtn">Start Game</button>
-
-                <button id="highscoresBtn" class="highscores">View Highscores</button>
-
-                <a class="button"
-                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons"
-                    target="_blank">Facebook</a>
-                <a class="button"
-                    href="mailto:?subject=Pure%20HTML%20Share%20Buttons&amp;body=https%3A%2F%2Fschier.co%2Fblog%2Fpure-html-share-buttons"
-                    target="_blank">Email</a>
+                <button type="button" class="btn btn-primary btn-rounded" id="startBtn">Start Game</button>
+                <button type="button" class="btn btn-danger btn-rounded" id="highscoreBtn">View Highscores</button>
             </div>
     </section>
     <!-- END OF MAIN PAGE -->
 
     <!-- questions page -->
-    <section id="startGamePage">
+    <section class="gameContainer" id="startGamePage">
+        <header>
+            <h2>
+                Marvel Trivia
+            </h2>
+            <br>
+            <br>
+            <div class="timerDiv">
+                <div class="timeText" id="secsLeft">Time: 00:15</div>
+            </div>
+        </header>
+        <br>
         <div class="questionText">
             <!-- insert question from JS here--> -->
         </div>
+        <br>
         <div class="answerList">
             <!--insert answer choices from JS-->
+        </div>
+        <!-- testing img to question box -->
+        <div class="answerSelected">
+            <img id="answerImg">
         </div>
     </section>
 
     <!-- Highscore Container -->
-    <section>
-        <div class="hsContainer" id="highscorePage">
-
+    <section class="containerHS" id="highscorePage">
+        <div>
+            <!-- Content here -->
             <h2>Highscores</h2>
 
             <div class="highscoreList">
-                <h3>Player</h3>
-                <h3>Score</h3>
+                <div>Player</div>
+                <div>Score</div>
             </div>
-
             <div>
                 <ul id="highscoreHistory"></ul>
             </div>
-
-            <div class="divButtons" id="backToMainBtn">
-                <div class="comments">
-                    *Your Disney charecter is based on your score*
-                </div>
-                <button id="mainPageBtn">Main Page</button>
+            <div class="divButtons">
+                <button type="button" class="btn btn-danger" id="mainPageBtn">Main Page</button>
             </div>
-        </div>
-
+    </section>
+    <section>
         <div class="formDiv" id="formPage">
 
             <h2>Game Over</h2>
@@ -84,14 +109,16 @@
                 Enter your initials below to save your highscore!
             </div>
             <br>
+            <h3>Player:</h3>
             <form class="formInput">
-                <label>Player:</label>
                 <input type="text" placeholder=" Your initials here..." name="playerInitials" id="playerInitials">
             </form>
-            <button id="saveBtn">Save</button>
-        </div>
+            <div class="saveBtn">
+                <button type="button" class="btn btn-success btn-rounded" id="saveBtn">Save</button>
+            </div>
     </section>
-    <script src="script.js"></script>
+    <script src="./Assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 </body>
 
 </html>
