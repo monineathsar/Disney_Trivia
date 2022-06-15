@@ -7,8 +7,13 @@ viewHsBtn.setAttribute("onclick", "viewHighScore()");
 
 // Game page global variables
 const gamePageSection = document.getElementById("startGamePage");
+const endGameDiv = document.querySelector(".endGameDiv");
+const viewFormBtn = document.getElementById("endGameBtn");
+viewFormBtn.setAttribute("onclick", "viewFormPage()");
 let questionsArray;
 let currentQuestion;
+let timer;
+let timeLeft;
 
 // Highscore page global variables
 const highscoreSection = document.getElementById("highscorePage");
@@ -18,7 +23,11 @@ mainPageBtn.setAttribute("onclick", "viewMainPage()");
 // highscore FORM page global variables
 const hsFormSection = document.getElementById("formPage");
 const saveFormBtn = document.getElementById("saveBtn");
-saveFormBtn.setAttribute("onclick", "viewMainPage()");
+saveFormBtn.setAttribute("onclick", "saveHighScore()");
+
+// score tracking global variables
+let scoreTracker;
+let scoreArray = [];
 
 // Giphy API key
 const giphyKey = "G0bL1VhIULA0XwlHEwdsZFsRp2kbEO4k";
@@ -27,7 +36,7 @@ const giphyKey = "G0bL1VhIULA0XwlHEwdsZFsRp2kbEO4k";
 // Marvel Trivia API fecth
 async function getMarvel() {
     return new Promise(function(resolve, reject){
-    fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=easy&tags=marvel')
+    fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=medium&tags=marvel')
     .then(function(response){
         response.json().then(function(data){
           resolve(data)
@@ -54,6 +63,14 @@ function viewHighScore() {
   highscoreSection.style.display = "block";
   mainPageSection.style.display = "none";
   hsFormSection.style.display = "none";
+  gamePageSection.style.display = "none";
+
+  let storedScoreArray = JSON.parse(localStorage.getItem("data"));
+  if (storedScoreArray !== null) { //sorts highscores from highest to lowest 
+    storedScoreArray.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+    scoreArray = storedScoreArray;
+  }
+  renderHighscore();
 }
 
 // to display main page
@@ -61,10 +78,12 @@ function viewMainPage() {
   mainPageSection.style.display = "block";
   highscoreSection.style.display = "none";
   hsFormSection.style.display = "none";
+  gamePageSection.style.display = "none";
 }
 
 // to diplay highscore FORM page
 function viewFormPage() {
+  gamePageSection.style.display = "none";
   mainPageSection.style.display = "none";
   highscoreSection.style.display = "none";
   hsFormSection.style.display = "block";
@@ -80,20 +99,21 @@ function viewGamePage() {
 
 // using the fetched trivia API to generate the questions
 function generateQuestions() {
-  questionTimer();
   viewGamePage();
   if (currentQuestion > 9) {
-    score = correctAnswersCount;
+    //score = correctAnswersCount;
+    endGameDiv.style.display = "block";
     clearInterval(timer);
-    gameOver();
-    viewFormPage();
+    // gameOver();
     return;
   }
 
+  questionTimer();
   let questionText = document.querySelector(".questionText");
   let answerList = document.querySelector(".answerList");
   let answerSelected = document.querySelector(".answerSelected");
-
+  
+  endGameDiv.style.display = "none";
   answerSelected.style.display = "none";
   answerList.style.display = "block"; 
 
@@ -120,7 +140,9 @@ function generateQuestions() {
 
 // function for when player selects on an answer option
 async function optionSelected(selection) {
+  clearInterval(timer);
     if (selection.innerText === questionsArray[currentQuestion].correctAnswer) {
+        scoreTracker++;
         selection.style.backgroundColor = 'green';
         document.querySelectorAll(".option").forEach(function(option) {
           if (option.innerText !== questionsArray[currentQuestion].correctAnswer) {
@@ -135,103 +157,86 @@ async function optionSelected(selection) {
         });
     } else {
         selection.style.backgroundColor = 'red';
+        document.querySelectorAll(".option").forEach(function(option) {
+          if (option.innerText === questionsArray[currentQuestion].correctAnswer) {
+            option.style.backgroundColor = "green";
+          }
+        });
     }
   currentQuestion++;
 
-  let timer = setInterval(function() {
+  setTimeout(function() {
     generateQuestions();
-    clearInterval(timer);
   }, 3000);
 }
 
 // start game button on main page
 startgameBtn.onclick = async function() {
-  document.querySelector(".timeText").innerHTML = "Time: ";
-  document.getElementById("secsLeft").style.display = "block";
-
-  timeLeft = 15;
   currentQuestion = 0;
-  //timer();
+  scoreTracker = 0;
   await getMarvel(questionsArray).then(result => {
     questionsArray = result;
   });
   generateQuestions(currentQuestion);
 }
 
-
-// Create the timer function and to have run smoothly
-// function timer() {
-//     var timeInterval = setInterval(function () {
-
-//         if (timeLeft > 0 && quizIndex !== quizObject.length){
-//             game.text(`You have ${timeLeft} seconds left.`);
-//             timeLeft--;
-//         }
-
-//         // Completed the questions or time has run out
-//         else (timeLeft === 0 || quizIndex === quizObject.length);
-
-//     },1000);
-// };
-
-// <<<<< Monineath's section
 function questionTimer() {
-  
+  timeLeft = 30;
+  document.getElementById("secsLeft").innerHTML = "Time: 00:" + formatSecond();
+ 
+  timer = setInterval(function(){
+    timeLeft--;
+    
+    if (timeLeft <= 0){
+      clearInterval(timer);
+      currentQuestion++;
+      generateQuestions();
+    } else {
+      document.getElementById("secsLeft").innerHTML = "Time: 00:" + formatSecond();
+    }
+  }, 1000);
 }
 
-// Uday's gameover section
-function play(quiz) {
-  //hide button and show form
-  hide($start);
-  show($form);
-  //main game loop
-  update($score,score);
-  
-  $form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      check($form[0].value);
-  }, false);
-  
-  
-  var i = 0;
-  chooseQuestion();
-  //end of main game loop
-  
-  gameOver();
-  
-  function chooseQuestion() {
-      var question = quiz.questions[i].question;
-      ask(question);
+function formatSecond() {
+  let second = timeLeft > 9 ? timeLeft : "0" + timeLeft;
+  return second;
+}
+
+function saveHighScore() {
+  let initial = document.getElementById("playerInitials").value.trim();
+  if (initial === ""){
+    return;
   }
-  
-  function ask(question) {
-      update($question, quiz.question + question);
-      $form[0].value=" ";
-      $form[0].focus();
+
+  let currentPlayer = {
+    playerName: initial,
+    score: scoreTracker
+  };
+
+  scoreArray.push(currentPlayer);
+  localStorage.setItem("data", JSON.stringify(scoreArray));
+  viewHighScore();
+}
+
+//pulls stored highscore from local storage
+function renderHighscore() {
+  highscoreHistory = document.getElementById("highscoreHistory");
+  highscoreHistory.innerHTML = "";
+
+  for (let i = 0; i < scoreArray.length; i++) {
+    let score = scoreArray[i];
+    let li = document.createElement("li");
+    li.classList.add("history");
+    //puts player's initials under the initial column
+    let initialDiv = document.createElement("div");
+    initialDiv.innerHTML = score.playerName;
+    li.appendChild(initialDiv);
+    //puts the accociated player's score under the score column
+    let scoreDiv = document.createElement("div");
+    scoreDiv.innerHTML = score.score;
+    li.appendChild(scoreDiv); 
+
+    //creates player's initals & score into list elements
+    highscoreHistory.appendChild(li);
   }
-  
-  function check(answer) {
-      if(answer === quiz.questions[i].answer){  
-      update($feedback, "Correct!","right");
-      //increase score by 1
-      score++;
-      update($score,score)
-      } else {
-      update ($feedback, "Wrong!", "wrong");
-      }
-      i++;
-      if(i===quiz.questions.length) {
-      gameOver();
-      } else {
-          chooseQuestion();
-      }
-      
-  }
-  
-  function gameOver() {
-      //inform the player that the game has finished and tell them how many points they have scored
-      update($question , "Game Over, you scored " + score + " points");
-      hide($form);
-      show($start);
-  }
-};
+}

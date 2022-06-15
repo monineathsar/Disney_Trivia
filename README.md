@@ -12,8 +12,13 @@ AS A TRIVIA fanatic
 I WANT TO start the trivia game answer each question
 SO THAT I CAN save my score and challenge myself and friends.
 
-### Screenshot: 
+### Mock-Up: 
 Deployed URL for our Marvel Trivia Project
+
+GitHub pages can be found here: https://monineathsar.github.io/Marvel_Trivia1.0/
+GitHub Repo can be found here: https://github.com/monineathsar/Marvel_Trivia1.0
+
+![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/TriviaDemo.gif)
 
 
 ## Our Process:
